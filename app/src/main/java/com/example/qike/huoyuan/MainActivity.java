@@ -10,6 +10,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.List;
 
@@ -111,5 +112,15 @@ public class MainActivity extends AppCompatActivity {
             mTextView.setText(sb.toString());
             mLocationClient.stop();
         }
+    }
+
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 }
