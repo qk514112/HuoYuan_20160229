@@ -14,4 +14,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/text_view"
         android:text="Hello World!" />
+    <Button
+        android:id="@+id/share_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="share"
+        android:layout_below="@+id/text_view"
+    />
 </RelativeLayout>

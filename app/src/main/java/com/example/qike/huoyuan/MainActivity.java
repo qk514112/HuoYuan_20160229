@@ -1,8 +1,11 @@
 package com.example.qike.huoyuan;
 
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
@@ -11,6 +14,10 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.analytics.social.UMSocialService;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
 
 import java.util.List;
 
@@ -18,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = new MyLocationListener();
     public TextView mTextView = null;
+    public Button mShareBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +36,25 @@ public class MainActivity extends AppCompatActivity {
         initLocation();
         mLocationClient.registerLocationListener(myListener);    //注册监听函数
         mLocationClient.start();
+        mShareBtn = (Button)findViewById(R.id.share_btn);
+        mShareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openShareAction();
+            }
+        });
+    }
+
+    void openShareAction() {
+        final SHARE_MEDIA[] displaylist = new SHARE_MEDIA[]
+                {
+                        SHARE_MEDIA.SMS
+                };
+        new ShareAction(this).setDisplayList( displaylist )
+                .withText( "呵呵" )
+                .withTitle("title")
+                .withTargetUrl("http://www.baidu.com")
+                .open();
     }
 
     private void initLocation(){
