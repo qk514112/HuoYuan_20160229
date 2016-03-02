@@ -1,3 +1,5 @@
 # HuoYuan_20160229
 huo yuan app with baidu lbs
-apk download link: http://pan.baidu.com/s/1eQOzH7O
+apk baidu lbs: http://pan.baidu.com/s/1eQOzH7O
+apk umeng sms social share: http://pan.baidu.com/s/1kUns0WB
+apk weixin application manager: http://pan.baidu.com/s/1i4gAXu9
